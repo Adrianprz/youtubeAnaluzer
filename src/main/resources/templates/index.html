@@ -207,6 +207,7 @@
       count = count+1;
     });
 
+<<<<<<< HEAD
     function lift(){
       $(".desc").typed({
         strings: ["¿Quieres saber que dijo su público?", "En tán solo 1 mínuto", "¡Pruébalo ahora!"],
@@ -221,6 +222,48 @@
 
       if(!btn_status){
         btn_status = true;
+=======
+    validateYouTubeUrl(keywordsvalue['url-video']);
+    //get keywords
+    var values_keys = "";
+
+    if(video_id != null){
+
+      for (var i = 1;i < Object.keys(keywordsvalue).length;i++) {
+        values_keys += keywordsvalue['kw'+i];
+      }
+    }
+
+    $.get("/api/process?vid="+video_id+"&keywords="+values_keys, function( token ) {
+      console.log("TOKEN : "+ token);
+    });
+  });
+
+  $('.close').on('click',function(){
+    $('.modal').css('display','none');
+  });
+
+  var eg1 = new Easygraphs({
+    container: document.getElementById('linear-chart'),
+    width: screen.width,
+    height: screen.height,
+
+
+    data: [{
+      name: 'Errors',
+      dots: {
+        color: 'rgb(246, 75, 47)'
+      },
+      line: {
+        width: 2,
+        color: 'rgb(246, 75, 47)',
+        fill: 'rgba(246, 75, 47, 0.5)'
+      },
+      values: [12, 22, 25, 23, 32, 34, 37, 30, 32, 40, 51, 56, 52, 70, 68, 72, 74, 78, 91, 92, 95, 96, 98, 121, 70, 78, 76, 68, 72, 71, 92]
+    }]
+  });
+  eg1.render();
+>>>>>>> 195f1a6339965ecc00a254826dc023c91081aef9
 
         $('.loader').css('display','block');
         keywordsvalue = {};
